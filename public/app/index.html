@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gritón de lotería</title>
+
+  <link rel="stylesheet" href="libs/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="libs/materializecss/materialize.min.css">
+  <link rel="stylesheet" href="app.css">
+
+  <script src="libs/jQuery/jquery-3.7.1.slim.min.js"></script>
+  <script src="libs/materializecss/materialize.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="container center-align">
+      <label class="left" for="menu"><i class="fas fa-bars"></i></label>
+      <img src="cards-generic.svg" alt="Logo" class="logo" />
+    </div>
+  </nav>
+  <main>
+    <form id="NewRound" action="javascript:void(0)" class="container row">
+      <h1 id="NewRoundTitle" class="center-align">Nueva ronda</h1>
+      <hr>
+      <div class="col s12 m6 l4">
+        <span id="TimeoutLegend">Tiempo entre cartas (en segundos)</span>: <span id="TimeoutVal" class="mono"></span>
+        <p class="range-field">
+          <input type="range" name="timeout" min="0.8" max="2.5" step="0.1" value="1.5" />
+        </p>
+      </div>
+      <div class="col s12 m6 l4 input-field">
+        <select name="deck"></select>
+        <label id="DeckLegend">Baraja</label>
+      </div>
+      <div class="col s12 m6 l4 input-field">
+        <select name="voice"></select>
+        <label id="VoiceLegend">Voz</label>
+      </div>
+      <div class="col s12 center-align">
+        <button class="btn waves-effect waves-light" type="submit">
+          <i class="fas fa-flag-checkered"></i> <span id="StartLegend">Iniciar</span>
+        </button>
+      </div>
+    </form>
+
+    <div id="RunningRound" class="container row">
+      <h6 id="deckName"></h6>
+      <hr>
+      <img id="cardImage" class="col s12 m8">
+      <div class="col s12 m4">
+        <div>Controles</div>
+        <div id="history"></div>
+      </div>
+    </div>
+
+    <div id="StartSplash" class="center-align" style="display: flex">
+      <img src="cards-generic.svg" alt="Logo" class="splash logo" />
+      <h1>Gritón de lotería</h1>
+      <span class="fa-4x">
+        <i class="fas fa-cog fa-spin"></i>
+      </span>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-copyright">
+      <div class="container center-align">
+        App de dominio público
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

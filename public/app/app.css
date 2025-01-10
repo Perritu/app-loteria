@@ -1,0 +1,189 @@
+/**
+ * Paleta de colores.
+ */
+
+html {
+  --fuente: #333;
+  --fondo: #DDD;
+  --fondo-claro: #FFF;
+  --fondo-oscuro: #999;
+  --distintivo: #9F9;
+  --distintivo2: #F99;
+  --info: #55F;
+  --alerta: #FF5;
+  --peligro: #F55;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  /**
+   * Paleta de colores. Modo oscuro.
+   */
+  html {
+    --fuente: #FFF;
+    --fondo: #333;
+    --fondo-claro: #555;
+    --fondo-oscuro: #111;
+    --distintivo: #050;
+    --distintivo2: #500;
+    --info: #00C;
+    --alerta: #CC0;
+    --peligro: #C00;
+  }
+}
+
+/* Tipografía */
+@font-face {
+  font-family: 'Fira Sans';
+  src: url(libs/gwfh/fira-sans-v17-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  src: url(libs/gwfh/fira-mono-v14-latin-regular.woff2);
+}
+
+/* Estilos generales */
+html {
+  background-color: var(--fondo);
+  color: var(--fuente);
+  font-family: 'Fira Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+}
+
+nav,
+footer {
+  background-color: var(--fondo-claro);
+  color: var(--fuente);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img.logo {
+  height: 3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: unset;
+}
+
+h1,
+h3,
+h5 {
+  font-weight: bold;
+}
+
+h2,
+h4,
+h6 {
+  font-weight: normal;
+}
+
+h1,
+h2 {
+  font-size: 2rem;
+}
+
+h3,
+h4 {
+  font-size: 1.8rem
+}
+
+h5,
+h6 {
+  font-size: 1.6rem
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--fondo-claro);
+}
+
+input {
+  color: unset;
+}
+
+input[type=range] {
+  border: 0;
+}
+
+.select-wrapper .dropdown-content {
+  background-color: var(--fondo-claro);
+  color: var(--fuente);
+}
+
+.select-wrapper .dropdown-content span {
+  color: var(--fuente);
+}
+
+.mono {
+  font-family: 'Fira Mono', monospace;
+}
+
+main>* {
+  display: none;
+}
+
+#StartSplash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo);
+}
+
+#StartSplash .splash.logo {
+  height: 10em;
+  margin-bottom: 2em;
+}
+
+.fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#cardImage {
+  height: 50vh;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  img.logo {
+    filter: invert(1);
+  }
+}
