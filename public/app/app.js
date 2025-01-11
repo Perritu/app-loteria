@@ -4,6 +4,31 @@ $(async function () {
     $('main > *').removeAttr('style')
     $who.show()
   }
+
+  const $Config = function (key, val) {
+    let config = localStorage.getItem('config')
+    if (!config) {
+      config = {}
+    } else {
+      config = JSON.parse(config)
+    }
+
+    let steps = key.split('.'), last = steps.pop(), current = config
+    for (const step of steps) {
+      if (!current[step]) {
+        current[step] = {}
+      }
+      current = current[step]
+    }
+
+    if (val !== undefined) {
+      current[last] = val
+      localStorage.setItem('config', JSON.stringify(config))
+    }
+
+    return current[last]
+  }
+
   const Decks = await fetch('decks/decks.json').then(r => r.json())
   const INTLnum = new Intl.NumberFormat('es-MX', { minimumFractionDigits: 1 })
   const Sleep = ms => new Promise(solve => setTimeout(solve, ms, true))
@@ -19,7 +44,7 @@ $(async function () {
 
   const $NewRound = $('#NewRound')
   $(() => {
-    const $Deck = $('[name="deck"]')
+    const $Deck = $('[name="deck"]'), LastDeckUsed = $Config('Startup.settings.deck')
     for (const Deck of Object.keys(Decks)) {
       const deck = Decks[Deck]
       $Deck.append($('<option>', {
@@ -27,26 +52,45 @@ $(async function () {
         text: deck.name
       }))
     }
-    // $Deck.formSelect()
+    if (LastDeckUsed) {
+      $Deck.val(LastDeckUsed)
+    }
 
-    const $TimeoutVal = $('#TimeoutVal')
-    $('[name="timeout"]').on('input', me =>
+    const $Timeout = $('[name="timeout"]'),
+      $TimeoutVal = $('#TimeoutVal'),
+      LastTimeout = $Config('Startup.settings.timeout')
+    $Timeout.on('input', me =>
       $TimeoutVal.text(INTLnum.format(me.target.value))
     ).trigger('input')
+    if (LastTimeout) {
+      $Timeout.val(LastTimeout)
+    }
 
-    const $Voice = $('[name="voice"]')
+    const $Voice = $('[name="voice"]'),
+      LastVoice = $Config('Startup.settings.voice')
     for (const vc of Voices) {
-      const lang = vc.lang.split('-')[0]
+      const lang = vc.lang.substr(0, 2).toUpperCase()
       $Voice.append($('<option>', {
         value: vc.name,
         text: `[${lang}] ${vc.name}`
       }))
+    }
+    if (LastVoice) {
+      $Voice.val(LastVoice)
     }
 
     $NewRound.find('select').formSelect()
 
     $NewRound.submit(evt => {
       evt.preventDefault()
+
+      // Save config to localStorage, so we can load it when restarting.
+      $Config('Startup.settings', {
+        deck: $Deck.val(),
+        timeout: $Timeout.val(),
+        voice: $Voice.val()
+      })
+
       ChangeScreen($RunningRound)
       newPlay(
         Decks[$Deck.val()],
