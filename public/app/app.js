@@ -59,12 +59,11 @@ $(async function () {
     const $Timeout = $('[name="timeout"]'),
       $TimeoutVal = $('#TimeoutVal'),
       LastTimeout = $Config('Startup.settings.timeout')
-    $Timeout.on('input', me =>
-      $TimeoutVal.text(INTLnum.format(me.target.value))
-    ).trigger('input')
-    if (LastTimeout) {
-      $Timeout.val(LastTimeout)
-    }
+    if (LastTimeout) $Timeout.val(LastTimeout)
+
+    $Timeout.on('input', function () {
+      $TimeoutVal.text(INTLnum.format(this.value))
+    }).trigger('input')
 
     const $Voice = $('[name="voice"]'),
       LastVoice = $Config('Startup.settings.voice')
@@ -114,9 +113,15 @@ $(async function () {
     for (const CardName of randomDeck) {
       const path = deck.cards[CardName]
       $CardImage.attr('src', `${BasePath}${path}`)
-      $History.append($('<div>', {
-        text: CardName
+
+      $History.append($('<img>', {
+        src: `${BasePath}${path}`,
+        alt: CardName,
+        class: 'historyCard'
       }))
+
+      // Scroll to the right; JQ slim, so no animate()
+      $History.scrollLeft($History.scrollLeft() + 1000)
 
       await Promise.all([
         Sleep(timeout),

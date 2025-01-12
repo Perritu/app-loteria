@@ -181,6 +181,21 @@ main>* {
   object-position: center;
 }
 
+#history {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-top: 0.5em;
+  white-space: nowrap;
+}
+
+#history>.historyCard {
+  height: 20vh;
+  width: 13vh;
+  margin: 0 0.25em;
+  object-fit: contain;
+}
+
+
 @media (prefers-color-scheme: dark) {
 
   img.logo {
