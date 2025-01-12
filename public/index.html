@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gritón de lotería</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/app/app.css">
+
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <nav>
+    <div class="container center-align">
+      <label class="left" for="menu"><i class="fas fa-bars"></i></label>
+      <img src="/app/cards-generic.svg" alt="Logo" class="logo" />
+    </div>
+  </nav>
+  <main>
+    <div class="container center-align" style="display: block">
+      <button id="InstallPWA" class="btn hidden">
+        <i class="fas fa-download"></i> Instalar aplicación
+      </button>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-copyright">
+      <div class="container">
+        Proyecto de dominio público.
+
+        <a href="https://github.com/perritu/griton-loteria" target="_blank" class="right">
+          <i class="fab fa-github"></i> Código fuente
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    'use strict'
+      ; (function () {
+        const installButton = document.getElementById('InstallPWA')
+        let installProompt = null
+
+        window.addEventListener('beforeinstallprompt', evt => {
+          evt.preventDefault()
+          installProompt = evt
+
+          installButton.classList.remove('hidden')
+        })
+
+        installButton.addEventListener('click', () => {
+          if (!installProompt) return 0
+
+          installProompt.prompt()
+        })
+      })()
+  </script>
+</body>
+
+</html>

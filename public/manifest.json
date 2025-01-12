@@ -1,0 +1,39 @@
+{
+  "name": "Gritón de lotería",
+  "short_name": "Gritón",
+  "id": "/app/",
+  "start_url": "/app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "App para jugar a la lotería.",
+  "icons": [
+    {
+      "src": "/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot/screen1.png",
+      "sizes": "376x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pantalla principal"
+    },
+    {
+      "src": "/screenshot/screen2.png",
+      "sizes": "376x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ronda de ejemplo"
+    },
+    {
+      "src": "/screenshot/screen3.png",
+      "sizes": "376x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ronda de ejemplo"
+    }
+  ]
+}
