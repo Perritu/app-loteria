@@ -9,6 +9,14 @@ const CACHE = 'dev.angelgarcia.loteria-v1'
 self.addEventListener('install', evt => {
   evt.waitUntil(
     caches.open(CACHE).then(async function (CACHE) {
+      // Purge cache (if any)
+      await CACHE.keys().then(keys => {
+        for(const key of keys) {
+          CACHE.delete(key)
+        }
+      })
+
+      // assets to cache
       let assets = [
         '/app/',
         '/app/app.css',
