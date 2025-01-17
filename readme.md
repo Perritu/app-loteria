@@ -1,4 +1,6 @@
 # Loteria
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria?ref=badge_shield)
+
 A simple `PWA` app to play the Mexican "Gallo de Don Clemente" lottery.
 
 ## Motivation
@@ -16,3 +18,6 @@ This project is (un)licensed under [The unlicense](LICENSE.txt).
 
 Everyone is free to use this project as they see fit.
 
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria?ref=badge_large)
