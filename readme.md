@@ -17,4 +17,4 @@ This project is (un)licensed under [The unlicense](LICENSE.txt).
 Everyone is free to use this project as they see fit.
 
 # Third Parties
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria?ref=badge_large&issueType=license)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPerritu%2Fapp-loteria?ref=badge_large)
