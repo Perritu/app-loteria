@@ -134,5 +134,19 @@ $(async function () {
     }
   }
 
+  $(() => {
+    const $MenuCheckbox = $('#menu'),
+      $Labels = $('label[for="menu"]'),
+      random = Math.random().toString(36).substring(2, 7).toUpperCase()
+
+    $MenuCheckbox.attr({
+      id: `menu-${random}`,
+      name: `menu-${random}`,
+    })
+    $Labels.attr({
+      for: `menu-${random}`,
+    })
+  })
+
   ChangeScreen($NewRound)
 })
